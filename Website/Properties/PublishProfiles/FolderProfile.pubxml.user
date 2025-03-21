@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\Nguyen Dan Truong\Desktop\HOC\AnToanBaoMatThongTin\RSA_project\Website\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2024-11-11T06:09:54.3482845Z||;True|2024-11-07T13:21:17.3510529+07:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="TruongDH">
+      <Value>Server=DESKTOP-H7VQS60\SQLEXPRESS%3bDatabase=InformationSecurity%3bTrusted_Connection=True%3bTrustServerCertificate=True%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

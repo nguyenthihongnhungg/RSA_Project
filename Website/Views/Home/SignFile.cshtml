@@ -1,0 +1,55 @@
+﻿<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Giải mã | Mã hóa file</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="SignFile" asp-controller="Home" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <h5 class="card-title">Loại kí số</h5>
+                            <select class="js-example-basic-single w-100" required>
+                                <option value="MHCT">Mã hóa chứng thực (Yêu cầu khóa bí mật người gửi)</option>
+                                <option value="MHBM">Mã hóa bảo mật (Yêu cầu khóa công khai người nhận)</option>
+                                <option value="GMCT">Giải mã chứng thực (Yêu cầu khóa công khai người gửi)</option>
+                                <option value="GMBM">Giải mã bảo mật (Yêu cầu khóa bí mật người nhận)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>File tài liệu</label>
+                            <input type="file"
+                                   name="Document"
+                                   class="file-upload-default" />
+                            <div class="input-group col-xs-12">
+                                <input type="text"
+                                       class="form-control file-upload-info"
+                                       disabled=""
+                                       placeholder="Upload Document" required/>
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary"
+                                            type="button">
+                                        Upload
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title d-flex">
+                                        Khóa số (định dạng .pem)
+                                    </h4>
+                                    <input type="file" class="dropify" accept=".pem" required />
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

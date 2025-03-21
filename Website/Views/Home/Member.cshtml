@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Thông tin về thành viên & đóng góp";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Thông tin nhóm</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Bảng Đóng Góp Các Thành Viên -->
+                    <div class="form-group">
+                        <h4>Đóng Góp Các Thành Viên</h4>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên</th>
+                                    <th>MSV</th>
+                                    <th>Vai trò</th>
+                                    <th>Đóng góp</th>
+                                    <th>% Đóng góp</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Thành viên có % đóng góp cao nhất -->
+                                <tr>
+                                    <td>1</td>
+                                    <td>Nguyễn Ngọc Đan Trường</td>
+                                    <td>1571020257</td>
+                                    <td>Trưởng nhóm</td>
+                                    <td style="line-height: 1.5;">Nghiên cứu thuật toán RSA, AES, build hệ thống <br />
+                                        xây dựng giải thuật khóa riêng tư, khóa công khai</td>
+                                    <td>30%</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Chu Hoàng Sơn</td>
+                                    <td>1571020223</td>
+                                    <td>Thành viên</td>
+                                    <td style="line-height: 1.5;">Xây dựng giải thuật upload/download file, xác thực người dùng <br /> giải thuật mã hóa/giải mã với AES</td>
+                                    <td>30%</td>
+                                </tr>
+                                <!-- Thành viên có % đóng góp thấp hơn -->
+                                <tr>
+                                    <td>3</td>
+                                    <td>Dương Văn Tuân</td>
+                                    <td>1571020260</td>
+                                    <td>Thành viên</td>
+                                    <td>Nghiên cứu mã hóa, giải mã chứng thực & chữ ký số từ khóa công khai và riêng tư</td>
+                                    <td>20%</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Nguyễn Đức Hiệp</td>
+                                    <td>1571020100</td>
+                                    <td>Thành viên</td>
+                                    <td>Nghiên cứu mã hóa & giải mã bảo mật từ khóa công khai và riêng tư</td>
+                                    <td>20%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <a asp-action="Index" asp-controller="Home" class="btn btn-danger mr-2">
+                        Back
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

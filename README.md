@@ -8,7 +8,7 @@ Dự án này cung cấp các chức năng mã hóa và giải mã RSA trong .NE
 - ✅ Xác thực chữ ký số.
 
 ## 📌 Yêu cầu hệ thống
-- .NET 8.0
+- .NET 6.0+
 - Visual Studio 2022 / VS Code
 - C#
 
@@ -18,7 +18,7 @@ Dự án này cung cấp các chức năng mã hóa và giải mã RSA trong .NE
    git clone https://github.com/your-repo/RSA-Encryption.git
    cd RSA-Encryption
    ```
-2. Mở project bằng Visual Studio hoặc VS Code.
+2. Mở project bằng Visual Studio (mở file /Website/RSA_project.sln) hoặc VS Code.
 3. Cài đặt các package cần thiết nếu có:
    ```bash
    dotnet restore

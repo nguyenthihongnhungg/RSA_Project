@@ -1,0 +1,65 @@
+﻿@model Response<List<Company>>
+
+@{
+    ViewBag.Title = "Mã hóa bảo mật - SecureSign";
+    var item = Model ?? new Response<List<Company>>(null, 200, "");
+    item.Data = item.Data ?? new List<Company>();
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Mã hóa bảo mật</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="EncryptionSecure" asp-controller="Home" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <h5 class="card-title">Loại kí số</h5>
+                            <select class="js-example-basic-single w-100" disabled>
+                                <option value="MHBM" selected>Mã hóa bảo mật (Yêu cầu khóa công khai người nhận)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>File tài liệu</label>
+                            <input type="file"
+                                   name="DocumentFile"
+                                   class="file-upload-default" required />
+                            <div class="input-group col-xs-12">
+                                <input type="text"
+                                       class="form-control file-upload-info"
+                                       disabled
+                                       placeholder="Upload Document" required/>
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary"
+                                            type="button">
+                                        Upload
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h5 class="card-title">Người nhận</h5>
+                            <select class="js-example-basic-single w-100" name="Receiver" required>
+                                @foreach(var comp in item.Data)
+                                {
+                                    <option value="@comp.Id">@comp.CompanyName</option>
+                                }
+                            </select>
+                        </div>
+                        @if (item.Message.IsNotNullOrEmpty())
+                        {
+                            <div class="form-group">
+                                <div class="alert alert-@item.GetAlertLevel() pt-3 pb-3">@item.Message</div>
+                            </div>
+                        }
+                        <button type="submit" class="btn btn-primary mr-2">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

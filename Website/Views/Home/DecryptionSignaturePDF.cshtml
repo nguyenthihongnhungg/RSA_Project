@@ -1,0 +1,57 @@
+﻿@model Response<string>
+@{
+    ViewBag.Title = "Xác thực chữ ký số PDF - SecureSign";
+    Response<string> item = Model ?? new Response<string>(null, 200, "");
+}
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Giải mã file</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="DecryptionSignaturePDF" asp-controller="Home" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <h5 class="card-title">Loại kí số</h5>
+                            <select class="js-example-basic-single w-100" disabled>
+                                <option value="GMCT">Xác thực chữ ký số trong File PDF (Mới)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>File tài liệu</label>
+                            <input type="file"
+                                   name="DocumentFile"
+                                   class="file-upload-default" accept=".pdf" required />
+                            <div class="input-group col-xs-12">
+                                <input type="text"
+                                       class="form-control file-upload-info"
+                                       disabled
+                                       placeholder="Upload Document" required/>
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary"
+                                            type="button">
+                                        Upload
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        @if (item.Message.IsNotNullOrEmpty())
+                        {
+                            <div class="form-group">
+                                <div class="alert alert-@item.GetAlertLevel() pt-3 pb-3">@item.Message</div>
+                                @if(item.StatusCode == 200)
+                                {
+                                    <a asp-action="Account" asp-route-uuid="@item.Data" class="btn btn-info">Xem chi tiết công ty/tổ chức</a>
+                                }
+                            </div>
+                        }
+                        <button type="submit" class="btn btn-primary mr-2">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

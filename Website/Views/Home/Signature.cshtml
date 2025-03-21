@@ -1,0 +1,72 @@
+﻿@model string
+@{
+    ViewBag.Title = "Khóa riêng & Chữ ký số";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Thông tin ký số</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Thông tin xác thực mật</h1>
+
+                    <div class="form-group">
+                        <div class="email-wrapper">
+                            <div class="message-body">
+                                <div class="attachments-sections">
+                                    <ul>
+                                        <li class="w-100 row">
+                                            <div class="col-md-3 d-flex align-items-center">
+                                                <div class="thumb mr-3"><i class="fa fa-lock"></i></div>
+                                                <div class="details">
+                                                    <p class="file-name font-weight-bold">
+                                                        Khóa riêng và chữ ký số
+                                                    </p>
+                                                    <span class="file-size">
+                                                        Note: Sau khi tải về khóa riêng và chữ ký số trên
+                                                        Server sẽ bị xóa!
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="details">
+                                                    <p class="file-name font-weight-bold">
+                                                        Lưu ý: Khóa riêng và chữ ký số chỉ có thể tải duy
+                                                        nhất 1 lần
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 d-flex align-items-center">
+                                                <div class="buttons float-right">
+                                                    @if (string.IsNullOrEmpty(Model))
+                                                    {
+                                                        <a href="#"
+                                                           class="btn btn-danger btn-icon-text mr-2 btn-sm disabled">
+                                                            Đã xóa bỏ
+                                                            <i class="fas fa-download btn-icon-append"></i>
+                                                        </a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a asp-action="Certificates" asp-controller="Task"
+                                                           class="btn btn-success btn-icon-text mr-2 btn-sm">
+                                                            Download
+                                                            <i class="fas fa-download btn-icon-append"></i>
+                                                        </a>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

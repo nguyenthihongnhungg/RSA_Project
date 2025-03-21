@@ -1,0 +1,89 @@
+﻿@model Response<Website.Models.Entity.FileResult>
+@{
+    ViewBag.Title = "Kết quả ký số";
+    Website.Models.Entity.FileResult fileResult = Model.Data;
+}
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Kết quả ký số</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Loại xác thực</h1>
+                    <div class="form-group">
+                        <input class="form-control" type="text" value="@fileResult?.SignType" readonly />
+                    </div>
+                    <div class="form-group">
+                        <div class="alert alert-@Model.GetAlertLevel()">
+                            <strong>@Model.Message</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="email-wrapper">
+                            <div class="message-body">
+                                <div class="attachments-sections">
+                                    <ul>
+                                        <li class="w-100 row">
+                                            <div class="col-md-3 d-flex align-items-center">
+                                                <div class="thumb mr-3"><i class="fa fa-file-@fileResult?.FileType"></i></div>
+                                                <div class="details">
+                                                    <p class="file-name font-weight-bold">@fileResult?.FileName</p>
+                                                    <span class="file-size">@fileResult?.Size</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="details">
+                                                    <p class="file-name">Đơn vị ký: <span class="font-weight-bold">@fileResult?.Sender</span></p>
+                                                    <span class="file-size">Thời gian ký: <span class="font-weight-bold">@fileResult?.CreatedAt.ToString("g")</span></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 d-flex align-items-center">
+                                                <div class="buttons float-right">
+                                                    <button type="button" class="btn btn-info btn-icon-text btn-sm mr-2" data-toggle="modal" data-target="#exampleModal-2">
+                                                        View <i class="fa fa-eye ml-1"></i>
+                                                    </button>
+                                                    <a asp-action="@fileResult?.ActionTask" asp-controller="Task" asp-route-filename="@fileResult?.FileName" asp-route-taskid="@fileResult?.TaskId" class="btn btn-success btn-icon-text mr-2 btn-sm">
+                                                        Download
+                                                        <i class="fas fa-download btn-icon-append"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal start -->
+                    <div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-2" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel-2">Thông tin file ký</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Tên file:          <b>@fileResult?.FileName</b></p>
+                                    <p>Kích thước:        <b>@fileResult?.Size</b></p>
+                                    <p>Đơn vị ký:         <b>@fileResult?.Sender</b></p>
+                                    <p>Đơn vị nhận:         <b>@fileResult?.Receiver</b></p>
+                                    <p>Hình thức ký:           <b>@fileResult?.SignType</b></p>
+                                    <p>Thời gian ký:      <b>@fileResult?.CreatedAt.ToString("g")</b></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal end -->
+                    <a asp-action="Index" asp-action="Home" class="btn btn-danger">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

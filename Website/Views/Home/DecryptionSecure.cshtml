@@ -1,0 +1,67 @@
+﻿@model Response<string>
+@{
+    ViewBag.Title = "Giải mã bảo mật - SecureSign";
+    Response<string> item = Model ?? new Response<string>(null, 200, "");
+}
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Giải mã file</h3>
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="DecryptionSecure" asp-controller="Home" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <h5 class="card-title">Loại kí số</h5>
+                            <select class="js-example-basic-single w-100" disabled>
+                                <option value="GMBM">Giải mã bảo mật (Yêu cầu khóa bí mật người nhận)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>File tài liệu</label>
+                            <input type="file"
+                                   name="DocumentFile"
+                                   class="file-upload-default" required/>
+                            <div class="input-group col-xs-12">
+                                <input type="text"
+                                       class="form-control file-upload-info"
+                                       disabled
+                                       placeholder="Upload Document"/>
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary"
+                                            type="button">
+                                        Upload
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>File khóa AES</label>
+                            <input type="file" class="form-control" name="KeyAes" accept=".aes" required />
+                        </div>
+                        <div class="form-group">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title d-flex">
+                                        Khóa số (định dạng .pem)
+                                    </h4>
+                                    <input type="file" class="dropify" accept=".pem" name="PrivateKey" required />
+                                </div>
+                            </div>
+                        </div>
+                        @if (item.Message.IsNotNullOrEmpty())
+                        {
+                            <div class="form-group">
+                                <div class="alert alert-@item.GetAlertLevel() pt-3 pb-3">@item.Message</div>
+                            </div>
+                        }
+                        <button type="submit" class="btn btn-primary mr-2">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
