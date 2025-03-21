@@ -15,7 +15,7 @@ Dự án này cung cấp các chức năng mã hóa và giải mã RSA trong .NE
 ## 🚀 Cài đặt
 1. Clone repo về máy:
    ```bash
-   git clone [https://github.com/your-repo/RSA-Encryption.git](https://github.com/nguyenthihongnhungg/RSA_Project.git)
+   git clone https://github.com/your-repo/RSA-Encryption.git
    cd RSA-Encryption
    ```
 2. Mở project bằng Visual Studio hoặc VS Code.
